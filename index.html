@@ -4,66 +4,95 @@
 <head>
 	<title>Plantae</title>
 	<meta name="author" content="Carlo Condò" />
-	<meta name="description" content="Pagina per generare una scheda su una pianta (progetto scolastico)" />
-	<script defer src="script.js"></script>
+	<meta name="description" content="Sistema di generazione di una scheda con dettagli su una pianta (progetto scolastico)" />
 	<link rel="stylesheet" href="style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8" />
+
+	<script defer src="script.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			var nome;
+			var cognome;
+
+			if (getCookie('nome')) nome = getCookie("nome");
+			else (document.location = "registrazione.html");
+
+			if (getCookie('cognome')) cognome = getCookie("cognome");
+			else (document.location = "registrazione.html");
+
+			document.getElementById('nome').innerText = nome;
+			document.getElementById('cognome').innerText = cognome;
+		});
+	</script>
 </head>
 
 <body>
 	<h1 style="text-align: center;">Sistema generazione scheda pianta</h1>
-
+	<div class="container">
+		<h3>Strumenti</h3>
+		<form action="https://www.actaplantarum.org/forum/search.php">
+			<label for="search">Cerca qui la tua pianta</label>
+			<input type="text" name="keywords" id="search" placeholder="Edera" />
+			<input type="submit" value="Cerca" aria-label="Cerca" />
+		</form>
+	</div>
 	<div id="print">
-		<h3>Nomenclatura</h3>
-		<div id="genere-e-specie">
-			<label for="genereESpecie">Genere e specie:</label>
-			<input type="text" id="genereESpecie" placeholder="Hedera helix" />
-		</div>
-		<div id="nome-comune">
-			<label for="nomeComune">Nome comune:</label>
-			<input type="text" id="nomeComune" placeholder="Edera" />
-		</div>
-		<h3>Caratteristiche</h3>
-		<div id="caratteristiche">
-			<ul>
-				<li>
-					<label for="periodoDiFioritura">Periodo di fioritura:</label>
-					<input type="text" id="periodoDiFioritura" placeholder="da settembre a novembre" />
-				</li>
-				<li>
-					<label for="foglie">Foglie:</label>
-					<br />
-					<textarea type="text" id="foglie" placeholder="persistenti (pianta sempreverde), coriacee, con margine liscio, colore verde scuro, nervature biancastre, lucide nella pagina superiore. Di forma variabile"></textarea>
-				</li>
-				<li>
-					<input type="checkbox" id="acidofila" />
-					<label for="acidofila">Acidofila</label>
-				</li>
-				<li>
-					<fieldset>
-						<legend>Erbosa/arbustiva/arborea</legend>
-						<div>
-							<input type="radio" id="erbosa" name="eaa" value="erbosa" />
-							<label for="erbosa">Erbosa</label>
-						</div>
-						<div>
-							<input type="radio" id="arbustiva" name="eaa" value="arbustiva" />
-							<label for="arbustiva">Arbustiva</label>
-						</div>
-						<div>
-							<input type="radio" id="arborea" name="eaa" value="arborea" />
-							<label for="arborea">Arborea</label>
-						</div>
-					</fieldset>
-				</li>
-			</ul>
-		</div>
-		<div id="genera">
-			<div style="display:none; margin: 4px 0;" id="avviso">
-				Per favore, compila tutti i campi.
+		<form onsubmit="return form_preventDefault(event)">
+			<h3>Autore <a href="javascript:deleteAllCookies()"><small><i>Esci</i></small></a></h3>
+			<p>Nome: <span id="nome">Caricamento...</span></p>
+			<p>Cognome: <span id="cognome">Caricamento...</span></p>
+			<h3>Nomenclatura</h3>
+			<div id="genere-e-specie">
+				<label for="genereESpecie">Genere e specie:</label>
+				<input type="text" id="genereESpecie" placeholder="Hedera helix" />
 			</div>
-			<button onclick="generate()">Genera</button>
-		</div>
+			<div id="nome-comune">
+				<label for="nomeComune">Nome comune:</label>
+				<input type="text" id="nomeComune" placeholder="Edera" />
+			</div>
+			<h3>Caratteristiche</h3>
+			<div id="caratteristiche">
+				<ul>
+					<li>
+						<label for="periodoDiFioritura">Periodo di fioritura:</label>
+						<input type="text" id="periodoDiFioritura" placeholder="da settembre a novembre" />
+					</li>
+					<li>
+						<label for="foglie">Foglie:</label>
+						<br />
+						<textarea type="text" id="foglie" placeholder="persistenti (pianta sempreverde), coriacee, con margine liscio, colore verde scuro, nervature biancastre, lucide nella pagina superiore. Di forma variabile"></textarea>
+					</li>
+					<li>
+						<input type="checkbox" id="acidofila" />
+						<label for="acidofila">Acidofila</label>
+					</li>
+					<li>
+						<fieldset>
+							<legend>Erbosa/arbustiva/arborea</legend>
+							<div>
+								<input type="radio" id="erbosa" name="eaa" value="erbosa" />
+								<label for="erbosa">Erbosa</label>
+							</div>
+							<div>
+								<input type="radio" id="arbustiva" name="eaa" value="arbustiva" />
+								<label for="arbustiva">Arbustiva</label>
+							</div>
+							<div>
+								<input type="radio" id="arborea" name="eaa" value="arborea" />
+								<label for="arborea">Arborea</label>
+							</div>
+						</fieldset>
+					</li>
+				</ul>
+			</div>
+			<div id="genera">
+				<div style="display:none; margin: 4px 0;" id="avviso">
+					Per favore, compila tutti i campi.
+				</div>
+				<button onclick="generate()">Genera</button>
+			</div>
+		</form>
 	</div>
 
 	<footer style="margin-top: 30px">
