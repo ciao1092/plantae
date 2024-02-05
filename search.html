@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta name="description" value="Ricerca informazioni piante" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="author" content="Carlo Condò" />
+	<title>Cerca piante</title>
+</head>
+
+<body>
+	<form action="https://www.actaplantarum.org/forum/search.php">
+		<h3><label for="search">Cerca qui la tua pianta</label></h3>
+		<input type="text" name="keywords" id="search" />
+		<input type="submit" value="Cerca" aria-label="Cerca" />
+		<input type="hidden" name="terms" value="all" />
+		<input type="hidden" name="author" value="" />
+		<input type="hidden" name="fid[]" value="95" />
+		<input type="hidden" name="sc" value="1" />
+		<input type="hidden" name="sf" value="all" />
+		<input type="hidden" name="sr" value="post" />
+		<input type="hidden" name="sk" value="t" />
+		<input type="hidden" name="sd" value="d" />
+		<input type="hidden" name="st" value="0" />
+		<input type="hidden" name="ch" value="300" />
+		<input type="hidden" name="t" value="0" />
+		<input type="hidden" name="submit" value="Cerca" />
+	</form>
+</body>
+
+</html>
+<!--
+https://www.actaplantarum.org/forum/search.php?keywords=edera&terms=all&author=&fid[]=95&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&t=0&submit=Cerca
+-->
