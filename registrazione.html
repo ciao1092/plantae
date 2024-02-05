@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<title>Plantae</title>
+	<meta name="author" content="Carlo Condò" />
+	<meta name="description" content="Pagina per generare una scheda su una pianta (progetto scolastico)" />
+	<script defer src="script.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+	<h1 style="text-align: center;">Sistema generazione scheda pianta</h1>
+
+	<div class="container">
+		<form onsubmit="return form_preventDefault(event)">
+			<h3>Ciao! Come ti chiami?</h3>
+			<div id="genere-e-specie">
+				<label for="nome">Nome:</label>
+				<input type="text" id="nome" placeholder="Hedera helix" />
+			</div>
+			<div id="nome-comune">
+				<label for="cognome">Cognome:</label>
+				<input type="text" id="cognome" placeholder="Edera" />
+			</div>
+
+			<div id="registra">
+				<div style="display:none; margin: 4px 0;" id="avviso">
+					Per favore, compila tutti i campi.
+				</div>
+				<button onclick="register()" type="submit">Salva</button>
+			</div>
+
+			<div class="info" id="informazioni">
+				<h4>Come usiamo i tuoi dati</h4>
+				<p>
+					In realt&agrave;, non lo facciamo: i tuoi dati <b>rimangono sul tuo dispositivo</b>.
+					Sono salvati in un <i>Cookie</i>
+				</p>
+			</div>
+		</form>
+	</div>
+
+	<footer style="margin-top: 30px">
+		<hr />
+		Autore: Carlo Cond&ograve;
+	</footer>
+</body>
+
+</html>

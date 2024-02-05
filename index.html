@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<title>Plantae</title>
+	<meta name="author" content="Carlo Condò" />
+	<meta name="description" content="Pagina per generare una scheda su una pianta (progetto scolastico)" />
+	<script defer src="script.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+	<h1 style="text-align: center;">Sistema generazione scheda pianta</h1>
+
+	<div id="print">
+		<h3>Nomenclatura</h3>
+		<div id="genere-e-specie">
+			<label for="genereESpecie">Genere e specie:</label>
+			<input type="text" id="genereESpecie" placeholder="Hedera helix" />
+		</div>
+		<div id="nome-comune">
+			<label for="nomeComune">Nome comune:</label>
+			<input type="text" id="nomeComune" placeholder="Edera" />
+		</div>
+		<h3>Caratteristiche</h3>
+		<div id="caratteristiche">
+			<ul>
+				<li>
+					<label for="periodoDiFioritura">Periodo di fioritura:</label>
+					<input type="text" id="periodoDiFioritura" placeholder="da settembre a novembre" />
+				</li>
+				<li>
+					<label for="foglie">Foglie:</label>
+					<br />
+					<textarea type="text" id="foglie" placeholder="persistenti (pianta sempreverde), coriacee, con margine liscio, colore verde scuro, nervature biancastre, lucide nella pagina superiore. Di forma variabile"></textarea>
+				</li>
+				<li>
+					<input type="checkbox" id="acidofila" />
+					<label for="acidofila">Acidofila</label>
+				</li>
+				<li>
+					<fieldset>
+						<legend>Erbosa/arbustiva/arborea</legend>
+						<div>
+							<input type="radio" id="erbosa" name="eaa" value="erbosa" />
+							<label for="erbosa">Erbosa</label>
+						</div>
+						<div>
+							<input type="radio" id="arbustiva" name="eaa" value="arbustiva" />
+							<label for="arbustiva">Arbustiva</label>
+						</div>
+						<div>
+							<input type="radio" id="arborea" name="eaa" value="arborea" />
+							<label for="arborea">Arborea</label>
+						</div>
+					</fieldset>
+				</li>
+			</ul>
+		</div>
+		<div id="genera">
+			<div style="display:none; margin: 4px 0;" id="avviso">
+				Per favore, compila tutti i campi.
+			</div>
+			<button onclick="generate()">Genera</button>
+		</div>
+	</div>
+
+	<footer style="margin-top: 30px">
+		<hr />
+		Autore: Carlo Cond&ograve;
+	</footer>
+</body>
+
+</html>
